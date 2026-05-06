@@ -16,6 +16,11 @@
     <div class="hud">
       <span>Score: <strong id="score">0</strong></span>
       <span>High Score: <strong id="highScore">0</strong></span>
+      <span>Lives: <strong id="lives">3</strong></span>
+      <span>Combo: <strong id="combo">x1</strong></span>
+      <span>Shield: <strong id="shieldStatus">No</strong></span>
+      <button id="soundBtn">Sound On</button>
+      <button id="pauseBtn">Pause</button>
       <button id="restartBtn">Restart</button>
     </div>
 
@@ -24,7 +29,7 @@
 
       <div id="startScreen" class="screen">
         <h2>Shadow Maze</h2>
-        <p>Collect all glowing orbs before your shadow catches you.</p>
+        <p>Collect glowing orbs, use power-ups, teleport through portals, and survive the shadows.</p>
         <p class="small-text">Move with Arrow Keys, W A S D, or touch controls.</p>
         <button id="startBtn">Start Game</button>
       </div>
@@ -33,6 +38,13 @@
         <h2>Game Over</h2>
         <p id="finalScoreText">Final Score: 0</p>
         <p id="finalLevelText">You reached Level 1</p>
+
+        <div class="score-submit-box">
+          <input id="playerNameInput" maxlength="20" placeholder="Enter your name" />
+          <button id="submitScoreBtn">Submit Score</button>
+          <p id="submitStatus" class="small-text"></p>
+        </div>
+
         <button id="playAgainBtn">Play Again</button>
       </div>
 
@@ -41,6 +53,13 @@
         <p id="levelBonusText">Bonus +0</p>
         <p id="nextLevelText">Get ready for Level 2</p>
         <button id="continueLevelBtn">Continue</button>
+      </div>
+
+      <div id="pauseScreen" class="screen hidden">
+        <h2>Paused</h2>
+        <p>Take a breath. Your shadow will wait.</p>
+        <p class="small-text">Press P or tap Resume to continue.</p>
+        <button id="resumeBtn">Resume</button>
       </div>
     </div>
 
@@ -55,8 +74,60 @@
     </div>
 
     <div id="message"></div>
+
+    <section class="leaderboard-section">
+      <h2>Online Leaderboard</h2>
+      <p class="leaderboard-note">Top 10 Shadow Maze scores from online players.</p>
+      <ol id="leaderboardList" class="leaderboard-list">
+        <li>Loading leaderboard...</li>
+      </ol>
+    </section>
+
+    <section class="how-to-play">
+      <h2>How to Play</h2>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-icon yellow">●</div>
+          <h3>Collect Light</h3>
+          <p>Collect all yellow lights to complete the level.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon red">●</div>
+          <h3>Avoid Your Shadow</h3>
+          <p>The red shadow follows your previous path. Do not let it touch you.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon blue">❄</div>
+          <h3>Freeze Power-Up</h3>
+          <p>The blue orb freezes the shadow for a few seconds.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon green">◆</div>
+          <h3>Shield Power-Up</h3>
+          <p>The green shield protects you for a short time.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon purple">◎</div>
+          <h3>Teleport Portals</h3>
+          <p>Use purple portals to jump across the maze instantly.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon hunter">H</div>
+          <h3>Hunter Enemy</h3>
+          <p>From Level 3, the purple Hunter starts chasing you.</p>
+        </div>
+      </div>
+    </section>
   </div>
 
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
   <script src="game.js"></script>
 </body>
 </html>
