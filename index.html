@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Shadow Maze</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-wrapper">
+    <h1>Shadow Maze</h1>
+    <p>Collect the light. Escape your shadow.</p>
+
+    <div class="hud">
+      <span>Score: <strong id="score">0</strong></span>
+      <span>High Score: <strong id="highScore">0</strong></span>
+      <button id="restartBtn">Restart</button>
+    </div>
+
+    <div class="game-area">
+      <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+      <div id="startScreen" class="screen">
+        <h2>Shadow Maze</h2>
+        <p>Collect all glowing orbs before your shadow catches you.</p>
+        <p class="small-text">Move with Arrow Keys, W A S D, or touch controls.</p>
+        <button id="startBtn">Start Game</button>
+      </div>
+
+      <div id="gameOverScreen" class="screen hidden">
+        <h2>Game Over</h2>
+        <p id="finalScoreText">Final Score: 0</p>
+        <p id="finalLevelText">You reached Level 1</p>
+        <button id="playAgainBtn">Play Again</button>
+      </div>
+
+      <div id="levelCompleteScreen" class="screen hidden">
+        <h2 id="levelCompleteTitle">Level Complete</h2>
+        <p id="levelBonusText">Bonus +0</p>
+        <p id="nextLevelText">Get ready for Level 2</p>
+        <button id="continueLevelBtn">Continue</button>
+      </div>
+    </div>
+
+    <div class="mobile-controls">
+      <button class="control-btn empty"></button>
+      <button class="control-btn" id="upBtn">↑</button>
+      <button class="control-btn empty"></button>
+
+      <button class="control-btn" id="leftBtn">←</button>
+      <button class="control-btn" id="downBtn">↓</button>
+      <button class="control-btn" id="rightBtn">→</button>
+    </div>
+
+    <div id="message"></div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
